@@ -84,6 +84,19 @@ class dbEvaluator:
 
 		plt.show()
 
+	def ageToCharges(self):
+		# Plotting a scatter plot
+		plt.scatter(self.df['age'], self.df['charges'])
+		plt.xlabel('Age')
+		plt.ylabel('Insurance Cost')
+		plt.title('Scatter Plot of Age vs Insurance Cost')
+		plt.grid(True)
+		plt.show()
+
+		# Calculate correlation coefficient
+		correlation_coefficient = self.df['age'].corr(self.df['charges'])
+		print("Correlation Coefficient of Age VS Insurance Cost:", correlation_coefficient)
+
 
 db = dbEvaluator()
 db.ageToBMI()
@@ -92,11 +105,13 @@ db.regionToBMI()
 db.smokerToRegion()
 db.smokerToSex()
 db.sexToBMI()
+db.ageToCharges()
 
 """ A few hypothesis about the graphs:
 1: The more children you have the more cost breaks you'll be given.
 2: There are more smokers and higher average bmi in the South East.
 3: There's almost a solid line in BMI vs Age that young people have lower bmi.
 4: There's more male smokers than female smokers.
-5: Females tend to have lower BMI than males
+5: Females tend to have lower BMI than males.
+6: Insurance cost kind of correlates to age, but late in life, nobody's cost is cheap
 """
